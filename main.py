@@ -18,6 +18,11 @@ clients = [
 
 
 def create_client(client):
+    """
+    It takes a client and adds it to the list of clients if it isn't already in the list
+    
+    :param client: the client socket
+    """
     global clients
 
     if client not in clients:
@@ -27,6 +32,9 @@ def create_client(client):
 
 
 def list_clients():
+    """
+    It prints a list of clients, with their uid, name, company, email, and position
+    """
     print('uid |  name  | company  | email  | position ')
     print('*' * 50)
 
@@ -40,6 +48,12 @@ def list_clients():
 
 
 def update_client(client_id, updated_client):
+    """
+    It updates the client in the clients list at the given client_id with the updated_client
+    
+    :param client_id: The id of the client to update
+    :param updated_client: a dictionary with the updated key/values. For example:
+    """
     global clients
 
     if len(clients) - 1 >= client_id:
@@ -96,6 +110,7 @@ def _print_welcome():
     print('[S]earch client')
 
 
+# It's a way to check if the file is being executed as a script or being imported as a module.
 if __name__ == '__main__':
     _print_welcome()
 
