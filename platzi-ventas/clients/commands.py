@@ -1,5 +1,8 @@
 import click
 
+from clients.services import ClientService
+from clients.models import Client
+
 
 @click.group()
 def clients():
@@ -8,10 +11,29 @@ def clients():
 
 
 @clients.command()
+@click.option('-n', '--name',
+              type=str,
+              prompt=True,
+              help='the client name')
+@click.option('-c', '--company',
+              type=str,
+              prompt=True,
+              help='the client company')
+@click.option('-e', '--email',
+              type=str,
+              prompt=True,
+              help='the client email')
+@click.option('-p', '--position',
+              type=str,
+              prompt=True,
+              help='the client position')
 @click.pass_context
-def create(ctx,name,companion,email,position):
+def create(ctx,name,company,email,position):
     """create  a new client"""
-    pass
+    client_service = ClientService(ctx.obj['clients_table'])
+    client = Client(name, company, email, position)
+
+    client_service.create_client(client)
 
 
 @clients.command()
