@@ -1,9 +1,8 @@
 import uuid
 
-
 class Client:
 
-    def __init__(self, name, company, email, position, uid=None):
+    def __init__(self, name, company, email, position, uid = None):
         self.name = name
         self.company = company
         self.email = email
@@ -15,4 +14,4 @@ class Client:
 
     @staticmethod
     def schema():
-        return ['name', 'company', 'email', 'position', 'uid']
+        return['name', 'company', 'email', 'position', 'uid']

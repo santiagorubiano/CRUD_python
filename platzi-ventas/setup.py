@@ -1,15 +1,15 @@
+
 from setuptools import setup
 
-
 setup(
-    name='pv',
+    name='odc',
     version='0.1',
-    py_modules=['pv'],
+    py_modules=['odc'],
     install_requires=[
-        'Click',
+        'click',
     ],
-    entry_points='''
+    entry_points = '''
         [console_scripts]
-        pv=pv:cli
+        odc=odc:cli
     ''',
 )
